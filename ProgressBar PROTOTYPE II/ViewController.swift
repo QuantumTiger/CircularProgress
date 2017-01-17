@@ -88,25 +88,25 @@ class ViewController: UIViewController
             {
                 print("Button One is enabled")
                 buttonOne.isEnabled = true
-                buttonOne.backgroundColor = UIColor.cyan
+                buttonOne.alpha = 1.0
             }
             if limit > 5
             {
                 print("Button Two is enabled")
                 buttonTwo.isEnabled = true
-                buttonTwo.backgroundColor = UIColor.purple
+                buttonTwo.alpha = 1.0
             }
             if limit > 7
             {
                 print("Button Three is enabled")
                 buttonThree.isEnabled = true
-                buttonThree.backgroundColor = UIColor.green
+                buttonThree.alpha = 1.0
             }
             if limit == 10
             {
                 print("Button Four is enabled")
                 buttonFour.isEnabled = true
-                buttonFour.backgroundColor = UIColor.magenta
+                buttonFour.alpha = 1.0
             }
         }
     }
@@ -143,10 +143,10 @@ class ViewController: UIViewController
     @IBAction func endTurn(_ sender: Any)
     {
         print("Turn Ended")
-        buttonOne.backgroundColor = UIColor.lightGray
-        buttonTwo.backgroundColor = UIColor.lightGray
-        buttonThree.backgroundColor = UIColor.lightGray
-        buttonFour.backgroundColor = UIColor.lightGray
+        buttonOne.alpha = 0.5
+        buttonTwo.alpha = 0.5
+        buttonThree.alpha = 0.5
+        buttonFour.alpha = 0.5
     }
     
     func removeNumber(numberToRemove : Double)
