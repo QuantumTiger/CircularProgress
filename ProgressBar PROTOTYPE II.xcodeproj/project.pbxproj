@@ -14,6 +14,7 @@
 		3F6DF0911E29DD19004BAB7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F6DF08F1E29DD19004BAB7F /* LaunchScreen.storyboard */; };
 		3F6DF09C1E29DD19004BAB7F /* ProgressBar_PROTOTYPE_IITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DF09B1E29DD19004BAB7F /* ProgressBar_PROTOTYPE_IITests.swift */; };
 		3F6DF0A71E29DD19004BAB7F /* ProgressBar_PROTOTYPE_IIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F6DF0A61E29DD19004BAB7F /* ProgressBar_PROTOTYPE_IIUITests.swift */; };
+		3FE2C5D31E2AB37A0029FB25 /* KDCircularProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FE2C5D21E2AB37A0029FB25 /* KDCircularProgress.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3F6DF0A21E29DD19004BAB7F /* ProgressBar PROTOTYPE IIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "ProgressBar PROTOTYPE IIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F6DF0A61E29DD19004BAB7F /* ProgressBar_PROTOTYPE_IIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar_PROTOTYPE_IIUITests.swift; sourceTree = "<group>"; };
 		3F6DF0A81E29DD19004BAB7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FE2C5D21E2AB37A0029FB25 /* KDCircularProgress.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KDCircularProgress.swift; path = ../KDCircularProgress.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		3F6DF0851E29DD19004BAB7F /* ProgressBar PROTOTYPE II */ = {
 			isa = PBXGroup;
 			children = (
+				3FE2C5D21E2AB37A0029FB25 /* KDCircularProgress.swift */,
 				3F6DF0861E29DD19004BAB7F /* AppDelegate.swift */,
 				3F6DF0881E29DD19004BAB7F /* ViewController.swift */,
 				3F6DF08A1E29DD19004BAB7F /* Main.storyboard */,
@@ -194,17 +197,20 @@
 					3F6DF0821E29DD19004BAB7F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6235ST4D52;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 					};
 					3F6DF0961E29DD19004BAB7F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6235ST4D52;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3F6DF0821E29DD19004BAB7F;
 					};
 					3F6DF0A11E29DD19004BAB7F = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 6235ST4D52;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 3F6DF0821E29DD19004BAB7F;
 					};
@@ -262,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FE2C5D31E2AB37A0029FB25 /* KDCircularProgress.swift in Sources */,
 				3F6DF0891E29DD19004BAB7F /* ViewController.swift in Sources */,
 				3F6DF0871E29DD19004BAB7F /* AppDelegate.swift in Sources */,
 			);
@@ -514,6 +521,7 @@
 				3F6DF0AD1E29DD19004BAB7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F6DF0AE1E29DD19004BAB7F /* Build configuration list for PBXNativeTarget "ProgressBar PROTOTYPE IITests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +530,7 @@
 				3F6DF0B01E29DD19004BAB7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3F6DF0B11E29DD19004BAB7F /* Build configuration list for PBXNativeTarget "ProgressBar PROTOTYPE IIUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +539,7 @@
 				3F6DF0B31E29DD19004BAB7F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
