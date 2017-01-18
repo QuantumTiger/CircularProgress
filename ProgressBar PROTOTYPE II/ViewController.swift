@@ -37,6 +37,8 @@ class ViewController: UIViewController
     var currentCount = 0.0
     let maxCount = 10.0
     var limit = 0.0
+    var turn = true
+    var attackPower = 0.0
     
     override func viewDidLoad()
     {
@@ -109,6 +111,14 @@ class ViewController: UIViewController
                 buttonFour.alpha = 1.0
             }
         }
+    }
+    
+    func AIAttack()
+    {
+        var attack : [Double] = [3.0,5.0,7.0,10.0]
+        let random = Int(arc4random_uniform(UInt32(attack.count)))
+        var selection = attack[random]
+        print(selection)
     }
     
     func newAngle() -> Int
