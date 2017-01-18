@@ -5,7 +5,8 @@
 //  Created by WGonzalez on 1/13/17.
 //  Copyright © 2017 Quantum Apple. All rights reserved.
 //
-// Wednesday & Thusday
+//  Wednesday & Thusday
+//  Racism
 
 import UIKit
 
