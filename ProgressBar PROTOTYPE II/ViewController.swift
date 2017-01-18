@@ -5,6 +5,7 @@
 //  Created by WGonzalez on 1/13/17.
 //  Copyright © 2017 Quantum Apple. All rights reserved.
 //
+// Wednesday & Thusday
 
 import UIKit
 
@@ -66,7 +67,7 @@ class ViewController: UIViewController
         buttonFour.isEnabled = false
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
-        
+        AI()
     }
 
     func moveTheProgressBar()
@@ -112,14 +113,30 @@ class ViewController: UIViewController
             }
         }
     }
+    func AI() {
+        var boolAttacks : [Bool] = [true, true, false, false, false]
+        var random = Int(arc4random_uniform(UInt32(boolAttacks.count)))
+        var selection = boolAttacks[random]
+        print(selection)
+        AIAttack()
+        for i in 0...1 {
+            var tryAgain = Int(arc4random_uniform(UInt32(boolAttacks.count)))
+            var select = boolAttacks[tryAgain]
+            if select == true {
+                AIAttack()
+            }
+        }
+        
+    }
     
     func AIAttack()
     {
         var attack : [Double] = [3.0,5.0,7.0,10.0]
-        let random = Int(arc4random_uniform(UInt32(attack.count)))
+        var random = Int(arc4random_uniform(UInt32(attack.count)))
         var selection = attack[random]
         print(selection)
     }
+    
     
     func newAngle() -> Int
     {
@@ -157,6 +174,7 @@ class ViewController: UIViewController
         buttonTwo.alpha = 0.5
         buttonThree.alpha = 0.5
         buttonFour.alpha = 0.5
+        turn = false
     }
     
     func removeNumber(numberToRemove : Double)
