@@ -6,7 +6,7 @@
 //  Copyright © 2017 Quantum Apple. All rights reserved.
 //
 //  Wednesday & Thusday
-//  Racism
+//  
 
 import UIKit
 
