@@ -78,7 +78,7 @@ class ViewController: UIViewController
 
     func moveTheProgressBar()
     {
-        
+        print(currentCount)
         if currentCount != maxCount
         {
             limit += 1
@@ -121,16 +121,27 @@ class ViewController: UIViewController
         }
         
     }
-    func AI() {
+    func AI()
+    {
         var boolAttacks : [Bool] = [true, true, false, false, false]
         var random = Int(arc4random_uniform(UInt32(boolAttacks.count)))
         var selection = boolAttacks[random]
         print(selection)
         AIAttack()
-        for i in 0...1 {
-            if selection == true {
+        for i in 0...1
+        {
+            if selection == true
+            {
+                print("Something first")
                 AIAttack()
-            } else {
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
+            }
+            else if selection == false
+            {
+                currentCount = 0
+                limit = 0
+                print("Do something")
+
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
                 
             }
