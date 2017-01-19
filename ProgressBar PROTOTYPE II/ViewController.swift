@@ -36,6 +36,8 @@ class ViewController: UIViewController
     var timer : Timer?
     var turnTimer : Timer?
     
+    var currentProgressFriend = 1.0
+    var currentProgressEnemy = 1.0
     var currentCount = 0.0
     let maxCount = 10.0
     var limit = 0.0
@@ -49,6 +51,9 @@ class ViewController: UIViewController
         progressView.angle = 0
         friendlyHealth.transform = friendlyHealth.transform.scaledBy(x: 1, y: 5)
         enemyHealth.transform = enemyHealth.transform.scaledBy(x: 1, y: 5)
+        
+        friendlyHealth.progress = 1
+        enemyHealth.progress = 1
         
         labelOne.text = "3"
         labelTwo.text = "5"
