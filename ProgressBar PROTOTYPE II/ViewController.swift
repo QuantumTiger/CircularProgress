@@ -68,11 +68,12 @@ class ViewController: UIViewController
         buttonFour.isEnabled = false
         
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
-        AI()
+       
     }
 
     func moveTheProgressBar()
     {
+        
         if currentCount != maxCount
         {
             limit += 1
@@ -113,6 +114,7 @@ class ViewController: UIViewController
                 buttonFour.alpha = 1.0
             }
         }
+        
     }
     func AI() {
         var boolAttacks : [Bool] = [true, true, false, false, false]
@@ -121,10 +123,11 @@ class ViewController: UIViewController
         print(selection)
         AIAttack()
         for i in 0...1 {
-            var tryAgain = Int(arc4random_uniform(UInt32(boolAttacks.count)))
-            var select = boolAttacks[tryAgain]
-            if select == true {
+            if selection == true {
                 AIAttack()
+            } else {
+                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
+                
             }
         }
         
@@ -175,7 +178,7 @@ class ViewController: UIViewController
         buttonTwo.alpha = 0.5
         buttonThree.alpha = 0.5
         buttonFour.alpha = 0.5
-        turn = false
+        AI()
     }
     
     func removeNumber(numberToRemove : Double)
@@ -189,7 +192,6 @@ class ViewController: UIViewController
             let angleconversion = newAngle()
             progressView.animate(toAngle: Double(angleconversion), duration: 0.5, completion: nil)
         }
-        
     }
     
     
