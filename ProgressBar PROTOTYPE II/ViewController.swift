@@ -38,6 +38,7 @@ class ViewController: UIViewController
     
     var currentProgressFriend = 1.0
     var currentProgressEnemy = 1.0
+    var FriendAttackPower = 0.0
     var currentCount = 0.0
     let maxCount = 10.0
     var limit = 0.0
@@ -78,7 +79,7 @@ class ViewController: UIViewController
 
     func moveTheProgressBar()
     {
-        print(currentCount)
+        
         if currentCount != maxCount
         {
             limit += 1
@@ -96,25 +97,25 @@ class ViewController: UIViewController
             }
             if limit > 3
             {
-                print("Button One is enabled")
+                
                 buttonOne.isEnabled = true
                 buttonOne.alpha = 1.0
             }
             if limit > 5
             {
-                print("Button Two is enabled")
+                
                 buttonTwo.isEnabled = true
                 buttonTwo.alpha = 1.0
             }
             if limit > 7
             {
-                print("Button Three is enabled")
+               
                 buttonThree.isEnabled = true
                 buttonThree.alpha = 1.0
             }
             if limit == 10
             {
-                print("Button Four is enabled")
+                
                 buttonFour.isEnabled = true
                 buttonFour.alpha = 1.0
             }
@@ -126,13 +127,13 @@ class ViewController: UIViewController
         var boolAttacks : [Bool] = [true, true, false, false, false]
         var random = Int(arc4random_uniform(UInt32(boolAttacks.count)))
         var selection = boolAttacks[random]
-        print(selection)
+        
         AIAttack()
         for i in 0...1
         {
             if selection == true
             {
-                print("Something first")
+               
                 AIAttack()
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
             }
@@ -140,7 +141,7 @@ class ViewController: UIViewController
             {
                 currentCount = 0
                 limit = 0
-                print("Do something")
+                
 
                 timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
                 
@@ -154,9 +155,24 @@ class ViewController: UIViewController
         var attack : [Double] = [3.0,5.0,7.0,10.0]
         var random = Int(arc4random_uniform(UInt32(attack.count)))
         var selection = attack[random]
-        print(selection)
+        if selection == 3.0 {
+            damageFriend(Damage: 0.05)
+        } else if selection == 5.0 {
+            damageFriend(Damage: 0.1)
+            
+        } else if selection == 7.0 {
+            damageFriend(Damage: 0.25)
+            
+        } else if selection == 10.0 {
+            damageFriend(Damage: 0.4)
+            
+        }
+        
     }
-    
+    func damageFriend(Damage: Double) {
+        currentProgressFriend -= Damage
+        friendlyHealth.setProgress(Float(currentProgressFriend), animated: true)
+    }
     
     func newAngle() -> Int
     {
@@ -165,27 +181,36 @@ class ViewController: UIViewController
     
     @IBAction func attackOne(_ sender: Any)
     {
-        print("Button One Pressed")
+        
         removeNumber(numberToRemove: 3)
+        FriendAttackPower += 0.05
     }
     
     @IBAction func attackTwo(_ sender: Any)
     {
-        print("Button Two Pressed")
+        
         removeNumber(numberToRemove: 5)
+        FriendAttackPower += 0.1
     }
     
     @IBAction func attackThree(_ sender: Any)
     {
-        print("Button Three Pressed")
+        
         removeNumber(numberToRemove: 7)
+        FriendAttackPower += 0.25
     }
     
     @IBAction func attackFour(_ sender: Any)
     {
-        print("Button Four Pressed")
+        
         removeNumber(numberToRemove: 10)
-
+        FriendAttackPower += 0.4
+        
+    }
+    
+    func damageEnemy(Damage: Double) {
+        currentProgressEnemy -= Damage
+        enemyHealth.setProgress(Float(currentProgressEnemy), animated: true)
     }
     @IBAction func endTurn(_ sender: Any)
     {
@@ -194,13 +219,15 @@ class ViewController: UIViewController
         buttonTwo.alpha = 0.5
         buttonThree.alpha = 0.5
         buttonFour.alpha = 0.5
+        damageEnemy(Damage: FriendAttackPower)
+        FriendAttackPower = 0.0
         AI()
     }
     
     func removeNumber(numberToRemove : Double)
     {
         let remove = currentCount - numberToRemove
-        print(remove)
+        
         if remove > 0 || remove == 0
         {
             currentCount = remove
