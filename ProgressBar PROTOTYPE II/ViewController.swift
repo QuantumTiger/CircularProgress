@@ -42,6 +42,7 @@ class ViewController: UIViewController
     var currentCount = 0.0
     let maxCount = 10.0
     var limit = 0.0
+    var limitTwo = 0.0
     var turn = true
     var attackPower = 0.0
     
@@ -80,9 +81,10 @@ class ViewController: UIViewController
     func moveTheProgressBar()
     {
         
-        if currentCount != maxCount
+        if currentCount != maxCount && limitTwo != 5.0
         {
             limit += 1
+            limitTwo += 1
             if limit == maxCount || limit < maxCount
             {
                 currentCount += 1
@@ -95,19 +97,19 @@ class ViewController: UIViewController
             {
                 timer?.invalidate()
             }
-            if limit > 3
+            if limit == 3
             {
                 
                 buttonOne.isEnabled = true
                 buttonOne.alpha = 1.0
             }
-            if limit > 5
+            if limit == 5
             {
                 
                 buttonTwo.isEnabled = true
                 buttonTwo.alpha = 1.0
             }
-            if limit > 7
+            if limit == 7
             {
                
                 buttonThree.isEnabled = true
@@ -215,6 +217,7 @@ class ViewController: UIViewController
     @IBAction func endTurn(_ sender: Any)
     {
         print("Turn Ended")
+        limitTwo = 0.0
         buttonOne.alpha = 0.5
         buttonTwo.alpha = 0.5
         buttonThree.alpha = 0.5
