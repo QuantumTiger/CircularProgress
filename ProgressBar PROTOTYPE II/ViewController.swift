@@ -135,18 +135,16 @@ class ViewController: UIViewController
         {
             if selection == true
             {
-               
+                currentCount = 0
+                limit = 0
                 AIAttack()
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
+                timerTwoPointO()
             }
             else if selection == false
             {
                 currentCount = 0
                 limit = 0
-                
-
-                timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
-                
+                timerTwoPointO()
             }
         }
         
@@ -224,6 +222,7 @@ class ViewController: UIViewController
         buttonFour.alpha = 0.5
         damageEnemy(Damage: FriendAttackPower)
         FriendAttackPower = 0.0
+        print(limitTwo)
         AI()
     }
     
@@ -238,6 +237,12 @@ class ViewController: UIViewController
             let angleconversion = newAngle()
             progressView.animate(toAngle: Double(angleconversion), duration: 0.5, completion: nil)
         }
+    }
+    
+    func timerTwoPointO()
+    {
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
     }
     
     
