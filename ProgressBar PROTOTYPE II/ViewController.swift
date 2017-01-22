@@ -87,7 +87,7 @@ class ViewController: UIViewController
         {
             limit += 1.0
             limitTwo += 1.0
-            
+            //90 -> 95 : Creates a cap so the progress bar does not go beyond its set limit
             if limit == maxCount || limit < maxCount
             {
                 currentCount += 1.0
@@ -97,7 +97,7 @@ class ViewController: UIViewController
             let newAngleValue = newAngle()
             
             progressView.animate(toAngle: Double(newAngleValue), duration: 0.5, completion: nil)
-            
+            // 100 -> 149 : Enables the buttons over time
             if limit >= 3.0
             {
                 
@@ -226,7 +226,7 @@ class ViewController: UIViewController
         return Int(360 * (currentCount / maxCount))
     }
     
-    
+    // 229 -> 260 : Each button removes points from the total value, runs a function to set the angle of the circle
     @IBAction func attackOne(_ sender: Any)
     {
         
@@ -282,15 +282,38 @@ class ViewController: UIViewController
     
     func removeNumber(numberToRemove : Double)
     {
-        
         let remove = currentCount - numberToRemove
-        
+        // 287 -> 294 : If statement that checks if there is enough points to remove from and sets the angle of the progress bar
         if remove > 0 || remove == 0
         {
             currentCount = remove
             displayLabel.text = "\(currentCount)"
             let angleconversion = newAngle()
             progressView.animate(toAngle: Double(angleconversion), duration: 0.5, completion: nil)
+        }
+        // 295 -> 318 : If statement that sets the alpha to 0.5 when there isn't enough points to spend for the button
+        if 3 > remove
+        {
+            buttonOne.alpha = 0.5
+        }
+        if 5 > remove
+        {
+            buttonTwo.alpha = 0.5
+        }
+        if 7 > remove
+        {
+            buttonThree.alpha = 0.5
+        }
+        if 10 > remove
+        {
+            buttonFour.alpha = 0.5
+        }
+        if remove == 0
+        {
+            buttonOne.alpha = 0.5
+            buttonTwo.alpha = 0.5
+            buttonThree.alpha = 0.5
+            buttonFour.alpha = 0.5
         }
     }
     
