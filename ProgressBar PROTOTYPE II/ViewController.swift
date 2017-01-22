@@ -12,7 +12,8 @@ import UIKit
 
 class ViewController: UIViewController
 {
-
+    
+    //outlets from the storyboard
     @IBOutlet weak var progressView: KDCircularProgress!
     
     @IBOutlet weak var buttonOne: UIButton!
@@ -83,39 +84,39 @@ class ViewController: UIViewController
         
         if currentCount != maxCount && limitTwo != 5.0
         {
-            limit += 1
-            limitTwo += 1
+            limit += 1.0
+            limitTwo += 1.0
             if limit == maxCount || limit < maxCount
             {
-                currentCount += 1
+                currentCount += 1.0
                 displayLabel.text = "\(currentCount)"
             }
             let newAngleValue = newAngle()
             
             progressView.animate(toAngle: Double(newAngleValue), duration: 0.5, completion: nil)
-            if limit == 10
+            if limit == 10.0
             {
                 timer?.invalidate()
             }
-            if limit == 3
+            if limit >= 3.0
             {
                 
                 buttonOne.isEnabled = true
                 buttonOne.alpha = 1.0
             }
-            if limit == 5
+            if limit >= 5.0
             {
                 
                 buttonTwo.isEnabled = true
                 buttonTwo.alpha = 1.0
             }
-            if limit == 7
+            if limit >= 7.0
             {
                
                 buttonThree.isEnabled = true
                 buttonThree.alpha = 1.0
             }
-            if limit == 10
+            if limit >= 10.0
             {
                 
                 buttonFour.isEnabled = true
@@ -135,17 +136,10 @@ class ViewController: UIViewController
         {
             if selection == true
             {
-                currentCount = 0
-                limit = 0
                 AIAttack()
-                timerTwoPointO()
+
             }
-            else if selection == false
-            {
-                currentCount = 0
-                limit = 0
-                timerTwoPointO()
-            }
+
         }
         
     }
@@ -222,8 +216,9 @@ class ViewController: UIViewController
         buttonFour.alpha = 0.5
         damageEnemy(Damage: FriendAttackPower)
         FriendAttackPower = 0.0
-        print(limitTwo)
+        limit = currentCount
         AI()
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
     }
     
     func removeNumber(numberToRemove : Double)
@@ -237,12 +232,6 @@ class ViewController: UIViewController
             let angleconversion = newAngle()
             progressView.animate(toAngle: Double(angleconversion), duration: 0.5, completion: nil)
         }
-    }
-    
-    func timerTwoPointO()
-    {
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(moveTheProgressBar), userInfo: nil, repeats: true)
     }
     
     
