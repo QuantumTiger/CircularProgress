@@ -21,9 +21,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-1j-pnu">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="zGQ-1j-pnu">
                                 <rect key="frame" x="0.0" y="397" width="375" height="270"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="270" id="8GR-Yg-kYX"/>
+                                </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Enemy" translatesAutoresizingMaskIntoConstraints="NO" id="eBg-Wo-YoU">
                                 <rect key="frame" x="216" y="38" width="151" height="151"/>
@@ -72,7 +74,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qiv-Rk-FmC">
-                                <rect key="frame" x="224" y="547" width="135" height="83"/>
+                                <rect key="frame" x="223" y="547" width="135" height="83"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Attack 4" backgroundImage="Button">
@@ -87,10 +89,13 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
                             </progressView>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="RCM-7d-Gzz">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="RCM-7d-Gzz">
                                 <rect key="frame" x="216" y="28" width="151" height="2"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.0" green="0.50196081400000003" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="2" id="abR-nY-tkZ"/>
+                                    <constraint firstAttribute="width" constant="151" id="yfZ-zF-Rr5"/>
+                                </constraints>
                             </progressView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lH9-Rn-8Sq" customClass="KDCircularProgress" customModule="ProgressBar_PROTOTYPE_II" customModuleProvider="target">
                                 <rect key="frame" x="133" y="470" width="108" height="108"/>
@@ -172,7 +177,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" name="controlDarkShadowColor" catalog="System" colorSpace="catalog"/>
+                        <constraints>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="zGQ-1j-pnu" secondAttribute="bottom" id="3hZ-GD-z16"/>
+                            <constraint firstItem="RCM-7d-Gzz" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="7Ty-Sx-WlJ"/>
+                            <constraint firstAttribute="trailing" secondItem="zGQ-1j-pnu" secondAttribute="trailing" id="Uv1-5T-EaC"/>
+                            <constraint firstAttribute="trailing" secondItem="RCM-7d-Gzz" secondAttribute="trailing" constant="8" id="bB6-vi-JTm"/>
+                            <constraint firstItem="zGQ-1j-pnu" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sSq-6i-nY4"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="buttonFour" destination="Qiv-Rk-FmC" id="exL-iL-nRc"/>
